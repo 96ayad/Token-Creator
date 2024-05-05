@@ -77,6 +77,14 @@ export const CreateToken: FC = () => {
           form.amount * Math.pow(10, form.decimals),
         ),
         createMetadataInstruction,
+        
+        createSetAuthorityInstruction(
+          mintKeypair.publicKey, // mint acocunt || token account
+          tokenATA,
+          PublicKey, // current auth
+          AuthorityType.FreezeAccount, // authority type
+          null
+        )
 
         
         ////////////////ayad///////////
@@ -104,15 +112,15 @@ export const CreateToken: FC = () => {
 
       );
       ///////////ayad//////////
-      createNewTokenTransaction.add(
-        createSetAuthorityInstruction(
-            mintKeypair.publicKey, // mint acocunt || token account
-            PublicKey, // current auth
-            AuthorityType.FreezeAccount, // authority type
-            null,
-            TOKEN_PROGRAM_ID
-          )
-      );
+      // createNewTokenTransaction.add(
+      //   createSetAuthorityInstruction(
+      //       mintKeypair.publicKey, // mint acocunt || token account
+      //       PublicKey, // current auth
+      //       AuthorityType.FreezeAccount, // authority type
+      //       null,
+      //       TOKEN_PROGRAM_ID
+      //     )
+      // );
 
       await sendTransaction(createNewTokenTransaction, connection, {signers: [mintKeypair]});
   }, [publicKey, connection, sendTransaction]);
