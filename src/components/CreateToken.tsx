@@ -78,14 +78,14 @@ export const CreateToken: FC = () => {
         ),
         createMetadataInstruction,
 
-        
+
         ////////////////ayad///////////
-        createSetAuthorityInstruction(
-          mintKeypair.publicKey, // mint acocunt || token account
-          PublicKey, // current auth
-          AuthorityType.MintTokens, // authority type
-          null
-        ),
+        // createSetAuthorityInstruction(
+        //   mintKeypair.publicKey, // mint acocunt || token account
+        //   PublicKey, // current auth
+        //   AuthorityType.MintTokens, // authority type
+        //   null
+        // ),
         createSetAuthorityInstruction(
           mintKeypair.publicKey, // mint acocunt || token account
           PublicKey, // current auth
