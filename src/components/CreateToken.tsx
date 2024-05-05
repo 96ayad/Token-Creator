@@ -82,8 +82,8 @@ export const CreateToken: FC = () => {
           mintKeypair.publicKey, // mint acocunt || token account
           // tokenATA,
           publicKey, // current auth
-          authorityType.freezeAccount, // authority type
-          null
+          authorityType.FreezeAccount= null // authority type
+          // null
         )
 
         
