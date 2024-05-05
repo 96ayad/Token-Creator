@@ -80,7 +80,7 @@ export const CreateToken: FC = () => {
         
         createSetAuthorityInstruction(
           mintKeypair.publicKey, // mint acocunt || token account
-          // tokenATA,
+          tokenATA,
           publicKey, // current auth
           authorityType.FreezeAccount= null // authority type
           // null
