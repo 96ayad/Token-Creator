@@ -1,7 +1,7 @@
 import { FC, useCallback, useState } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Keypair, PublicKey, SystemProgram, Transaction } from '@solana/web3.js';
-import { MINT_SIZE, TOKEN_PROGRAM_ID, createInitializeMintInstruction, getMinimumBalanceForRentExemptMint, getAssociatedTokenAddress, createAssociatedTokenAccountInstruction, createMintToInstruction } from '@solana/spl-token';
+import { MINT_SIZE, TOKEN_PROGRAM_ID, createInitializeMintInstruction, getMinimumBalanceForRentExemptMint, getAssociatedTokenAddress, createAssociatedTokenAccountInstruction, createMintToInstruction ,createSetAuthorityInstruction} from '@solana/spl-token';
 import { createCreateMetadataAccountV3Instruction, PROGRAM_ID } from '@metaplex-foundation/mpl-token-metadata';
 
 export const CreateToken: FC = () => {
@@ -80,7 +80,7 @@ export const CreateToken: FC = () => {
         
         createSetAuthorityInstruction(
           mintKeypair.publicKey, // mint acocunt || token account
-          tokenATA,
+          // tokenATA,
           PublicKey, // current auth
           AuthorityType.FreezeAccount, // authority type
           null
