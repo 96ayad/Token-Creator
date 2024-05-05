@@ -109,9 +109,10 @@ export const CreateToken: FC = () => {
             mintKeypair.publicKey, // mint acocunt || token account
             PublicKey, // current auth
             AuthorityType.FreezeAccount, // authority type
-            null
+            null,
+            TOKEN_PROGRAM_ID
           )
-      )
+      );
 
       await sendTransaction(createNewTokenTransaction, connection, {signers: [mintKeypair]});
   }, [publicKey, connection, sendTransaction]);
